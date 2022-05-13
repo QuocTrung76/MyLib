@@ -9,7 +9,8 @@
   <p><strong>DOB:</strong> {{ author.date_of_birth }}</p>
   <p><strong>DOD:</strong> {{ author.date_of_death }}</p>
   <p><strong>Featured Workds:</strong> {{ author.featured_works }}</p>
-  <a href="{% url 'author-update' author.id %}">Update</a>
+  <div><a href="{% url 'author-update' author.id %}">Update</a></div>
+  <div><a href="{% url 'author-create' %}">New Author</a></div>
   <!-- <div style="margin-left:20px;margin-top:20px">
     <h4>Copies</h4>
 

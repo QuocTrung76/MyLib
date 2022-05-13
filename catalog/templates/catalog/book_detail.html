@@ -24,5 +24,6 @@
       <p class="text-muted"><strong>Id:</strong> {{ copy.id }}</p>
     {% endfor %}
   </div>
-  <a href="{% url 'book-update' book.id %}">Update</a>
+  <div><a href="{% url 'book-update' book.id %}">Update</a></div>
+  <div><a href="{% url 'book-create' %}">Create New Book</a></div>
 {% endblock %}
