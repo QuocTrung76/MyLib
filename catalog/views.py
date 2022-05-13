@@ -143,7 +143,7 @@ class AuthorCreate(CreateView):
 
 class AuthorUpdate(UpdateView):
     model = Author
-    form_class = AuthorForm
+    #orm_class = AuthorForm
     fields = '__all__' # Not recommended (potential security issue if more fields added)
 
 class AuthorDelete(DeleteView):

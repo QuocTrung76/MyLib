@@ -9,8 +9,8 @@
   <p><strong>DOB:</strong> {{ author.date_of_birth }}</p>
   <p><strong>DOD:</strong> {{ author.date_of_death }}</p>
   <p><strong>Featured Workds:</strong> {{ author.featured_works }}</p>
-
-  <div style="margin-left:20px;margin-top:20px">
+  <a href="{% url 'author-update' author.id %}">Update</a>
+  <!-- <div style="margin-left:20px;margin-top:20px">
     <h4>Copies</h4>
 
     {% for copy in book.bookinstance_set.all %}
@@ -24,5 +24,5 @@
       <p><strong>Imprint:</strong> {{ copy.imprint }}</p>
       <p class="text-muted"><strong>Id:</strong> {{ copy.id }}</p>
     {% endfor %}
-  </div>
+  </div> -->
 {% endblock %}
