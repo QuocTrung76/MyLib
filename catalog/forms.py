@@ -5,8 +5,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 from django.forms import ModelForm
-
-from catalog.models import BookInstance
+from catalog.models import BookInstance, Book, Author
 # class RenewBookForm(forms.Form):
 #     renewal_date = forms.DateField(help_text="Enter a date between now and 4 weeks (default 3).", required=False)
 
@@ -65,3 +64,20 @@ class RenewBookForm(ModelForm):
 #         fields = ['due_back']
 #         labels = {'due_back': _('Renewal date')}
 #         help_texts = {'due_back': _('Enter a date between now and 4 weeks (default 3).')}
+
+
+
+
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+
+class AuthorForm(ModelForm):
+
+    class Meta:
+        model = Author
+        fields = '__all__'
+        widgets = {
+            'date_of_birth': DateInput(),
+            'date_of_death': DateInput(),
+        }
