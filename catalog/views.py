@@ -50,7 +50,6 @@ class BookDetailView(LoginRequiredMixin,generic.DetailView):
 
 class AuthorListView(LoginRequiredMixin,generic.ListView):
     model = Author
-    paginate_by = 5
     context_object_name = 'author_list'   # your own name for the list as a template variable
     queryset = Author.objects.all()#filter(title__icontains='C')[:5] # Get 5 books containing the title war
     template_name = 'authors/my_arbitrary_template_name_list.html'  # Specify your own template name/location
@@ -65,7 +64,6 @@ class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):
     model = BookInstance
     template_name ='catalog/bookinstance_list_borrowed_user.html'
     #template_name ='catalog/borrowed.html'
-    paginate_by = 5
 
     def get_queryset(self):
         return BookInstance.objects.filter(borrower=self.request.user).filter(status__exact='o').order_by('due_back')
@@ -83,7 +81,6 @@ class MyView(PermissionRequiredMixin, generic.ListView):
     # the catalog application doesn't have such permission!
     model = BookInstance
     template_name ='catalog/borrowed.html'
-    paginate_by = 5
 
     def get_queryset(self):
         return BookInstance.objects.filter(status__exact='o').order_by('due_back')
