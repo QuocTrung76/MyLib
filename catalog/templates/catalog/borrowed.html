@@ -1,6 +1,7 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+<section class="book_section">
     <h1>All Borrowed books</h1>
 
     {% if bookinstance_list %}
@@ -18,4 +19,5 @@
     {% else %}
       <p>There are no books borrowed.</p>
     {% endif %}
+  </section>
 {% endblock %}

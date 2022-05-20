@@ -9,64 +9,58 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  {% block script %}{% endblock %}
 </head>
+
+
 <body>
   <div class="container-fluid">
     <div class="row">
-      <header>
-      <img src="9.png">
-      <nav>
-        {% block sidebar %}
-          <lu>
-            {% if user.is_authenticated %}
-              <li><a href="{% url 'index' %}">Home</a>  </li>
-              <li><a href="{% url 'books' %}">All-books</a>  </li>
-              <li><a href="{% url 'authors' %}">All-authors</a></li>
-            {% else %}
-              <li><a href="{% url 'index' %}">Home</a></li>
-            {% endif %}
-            {% if user.is_authenticated %}
-              {% if perms.catalog.can_mark_returned %}
-                <!-- We can mark a BookInstance as returned. -->
-                <!-- Perhaps add code to link to a "book return" view here. -->
-                <li>Staff-only: </li>
-                <li><a href="{% url 'borrowed' %}">All-Borrowed</a></li>
+    <header>
+      <div class = "logo">
+        <img src="{% static 'css/logo.jpg' %}">
+        <h1 style="color: white;">ONLINE LIBRARY MANAGEMENT SYSTEM</h1>
+      </div>
+        <nav>
+          {% block sidebar %}
+            <ul>
+              {% if user.is_authenticated %}
+                <!-- <li><a href="{% url 'index' %}">HOME</a></li> -->
+                <li><a href="{% url 'books' %}">ALL-BOOKS</a></li>
+                <li><a href="{% url 'authors' %}">ALL-AUTHORS</a></li>
+              {% else %}
+                <li><a href="{% url 'index' %}">HOME</a></li>
               {% endif %}
-              <li>User: {{ user.get_username }}</li>
-              <li><a href="{% url 'my-borrowed' %}">My-Borrowed</a></li>
-              <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
-            {% else %}
-              <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
-            {% endif %}
-          </lu>
-        {% endblock %}
-        </nav>
-      </header>
-      <section>
-        <div class="col-sm-10">{% block content %}{% endblock %}
-          {% block pagination %}
-            {% if is_paginated %}
-              <div class="pagination">
-                <span class="page-links">
-                  {% if page_obj.has_previous %}
-                    <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
-                  {% endif %}
-                  <span class="page-current">
-                      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                  </span>
-                  {% if page_obj.has_next %}
-                      <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
-                  {% endif %}
-                </span>
-              </div>
-            {% endif %}
+              {% if user.is_authenticated %}
+                {% if perms.catalog.can_mark_returned %}
+                  <!-- We can mark a BookInstance as returned. -->
+                  <!-- Perhaps add code to link to a "book return" view here. -->
+                  <!-- <li>Staff-only:</li> -->
+                  <li><a href="{% url 'borrowed' %}">ALL-BORROWED</a></li>
+                {% endif %}
+              <!-- <li>User: {{ user.get_username }}</li> -->
+              <li><a href="{% url 'my-borrowed' %}">MY-BORROWED</a></li>
+              <li><a href="{% url 'logout'%}?next={{request.path}}">LOGOUT</a></li>
+              {% else %}
+                <li><a href="{% url 'login'%}?next={{request.path}}">LOGIN</a></li>
+              {% endif %}
+            </ul>
           {% endblock %}
-        </div>
-      </section>
-      <footer>
-
-      </footer>
-    </div>
+        </nav>
+    </header>
+        {% block index %}{% endblock %}
+        {% block login %}{% endblock %}
+        {% if user.is_authenticated %}
+          {% block content %}{% endblock %}
+        {% endif %}
+    <footer>
+      <p style="color: white; text-align:center;">
+        <br><br>
+        Email:&nbsp Online.library@gmail.com <br><br>
+        Mobile:&nbsp +843622*****
+      </p>
+    </footer>
+  </div>
   </div>
 </body>
 </html>
