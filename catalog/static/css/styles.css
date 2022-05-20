@@ -127,7 +127,7 @@ header
 	box-shadow: 0 5px 15px rgba(0,0,0,.2);	
     height: 150px;
     width: 100%;
-    background-color: rgba(34,34,34,0.25);
+    background: linear-gradient(rgba(20,30,48,0.8), rgba(36,59,85,0.8));
 }
 
 section
@@ -141,7 +141,7 @@ footer
 {
     height:102px;
     width: 100%;
-    background-color: rgba(34,34,34,0.25);
+    background: linear-gradient(#141e30, #243b55);
 }
 
 
@@ -187,14 +187,7 @@ nav li a:hover
     transition: .5s
 }
 
-section
-{
-    margin-top: 0px;
-    background-image: url("1.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    /* background: linear-gradient(#141e30, #243b55); */
-}
+
 
 .col-sm-10
 {
@@ -392,18 +385,22 @@ section
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 .book_section
 {
-    background: -webkit-linear-gradient(left, #25c481, #25b7c4);
-    background: linear-gradient(to right, #25c481, #25b7c4);
-    font-family: 'Roboto', sans-serif;
+    /* background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+    background: linear-gradient(to right, #25c481, #25b7c4); */
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background: linear-gradient(#141e30, #243b55);
 }
 
 .booklist
 {
-    background: -webkit-linear-gradient(left, #25c481, #25b7c4);
-    background: linear-gradient(to right, #25c481, #25b7c4);
+    /* background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+    background: linear-gradient(to right, #25c481, #25b7c4); */
     font-family: 'Roboto', sans-serif;
     width: 700px;
     margin: 0px auto;
+    /* background: linear-gradient(#141e30, #243b55); */
 }
 .inbooklist
 {
@@ -466,17 +463,16 @@ section
 
 
 /*-----------define author list-----------*/
-
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 .author_section
 {
-    background: -webkit-linear-gradient(left, #25c481, #25b7c4);
-    background: linear-gradient(to right, #25c481, #25b7c4);
-    font-family: 'Roboto', sans-serif;
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background: linear-gradient(#141e30, #243b55);
 }
 .authorlist
 {
-    background: -webkit-linear-gradient(left, #25c481, #25b7c4);
-    background: linear-gradient(to right, #25c481, #25b7c4);
     font-family: 'Roboto', sans-serif;
     width: 700px;
     margin: 0px auto;
