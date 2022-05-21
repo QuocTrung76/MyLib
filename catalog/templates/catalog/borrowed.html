@@ -1,8 +1,15 @@
 {% extends "base_generic.html" %}
-
+{% block script %}
+<script>
+  $(window).on("load resize ", function() {
+  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+  $('.tbl-header').css({'padding-right':scrollWidth});
+}).resize();
+</script>
+{% endblock %}
 {% block content %}
 <section class="book_section">
-    <h1>All Borrowed books</h1>
+    <!-- <h1>All Borrowed books</h1>
 
     {% if bookinstance_list %}
     <ul>
@@ -18,6 +25,45 @@
 
     {% else %}
       <p>There are no books borrowed.</p>
-    {% endif %}
+    {% endif %} -->
+    <div class="booklist">
+      <div class="inbooklist">
+        <h1 style="color: white">All Borrowed books</h1>
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <thread>
+              <tr>
+                <th>Title</th>
+                <th>Due Date</th>
+                <th>Borrower</th>
+                <th>Action</th>
+              </tr>
+            </thread>
+          </table>
+        </div class="tbl-header">
+        <div class="tbl-content">
+            {% if bookinstance_list %}
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tbody>
+                {% for bookinst in bookinstance_list %}
+                  <tr>
+                    <td class="{% if bookinst.is_overdue %}text-danger{% endif %}"><a href="{% url 'book-detail' bookinst.book.pk %}">{{ bookinst.book.title }}</a></td>
+                    <td>{{ bookinst.due_back }}</td>
+                    <td>{{bookinst.borrower}}</td>
+                    <td class="{% if bookinst.is_overdue %}text-danger{% endif %}">{% if perms.catalog.can_mark_returned %} <a href="{% url 'renew-book-librarian' bookinst.id %}">Renew</a>  {% endif %}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            {% else %}
+              <p>There are no books borrowed.</p>
+            {% endif %}
+        </div class="tbl-content">
+        <!-- <div style="padding: 20px;">
+          <a href="{% url 'book-create' %}">Create New Book</a>
+        </div> -->
+      </div>
+    </div>
+    
   </section>
 {% endblock %}
