@@ -1,6 +1,8 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+<section class="book_section">
+  <div style="color:#fff">
   <form action="" method="post">
     {% csrf_token %}
     <table>
@@ -8,4 +10,6 @@
     </table>
     <input type="submit" value="Submit">
   </form>
+</div>
+</section>
 {% endblock %}

@@ -508,12 +508,25 @@ nav li a:hover
     display: table-cell;
     width: 50%;
     padding-left: 50px;
-    padding-right: 20px;
+    padding-right: 50px;
 }
+
+
+
 
 .action-detail
 {
     margin-top: 10px;
 }
+
+
+/*----------author-detail---------*/
+
+.tbl-author
+{
+    
+}
+
+
 
 
