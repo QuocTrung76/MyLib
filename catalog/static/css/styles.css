@@ -430,6 +430,7 @@ nav li a:hover
     margin-top: 0px;
     border: 1px solid rgba(255,255,255,0.3);
   }
+
  .inbooklist th{
     padding: 20px 15px;
     text-align: left;
@@ -485,3 +486,34 @@ nav li a:hover
     text-align: center;
     margin-bottom: 15px;
 }
+
+
+/*-----------book-detail----------*/
+
+.bookcontent
+{
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 100%;
+    display: table;
+}
+.tbl-content1
+{
+    width: 30%;
+    display: table-cell;
+}
+
+.tbl-content2
+{
+    display: table-cell;
+    width: 50%;
+    padding-left: 50px;
+    padding-right: 20px;
+}
+
+.action-detail
+{
+    margin-top: 10px;
+}
+
+
