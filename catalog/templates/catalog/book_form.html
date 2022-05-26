@@ -1,15 +1,13 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<section class="book_section">
-  <div style="color:#fff">
-  <form action="" method="post">
-    {% csrf_token %}
-    <table>
-    {{ form.as_table }}
-    </table>
-    <input type="submit" value="Submit">
-  </form>
-</div>
-</section>
+    <div style="color:#fff; margin-top: 30px; margin-left: 30px;">
+      <form action="" method="post">
+        {% csrf_token %}
+        <table style="color:rgb(60, 92, 139)">
+        {{ form.as_table }}
+        </table>
+        <input style="color:black" type="submit" value="Submit">
+      </form>
+    </div>
 {% endblock %}

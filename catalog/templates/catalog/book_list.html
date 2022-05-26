@@ -8,42 +8,40 @@
 </script>
 {% endblock %}
 {% block content %}
-<section class="book_section">
-<div class="booklist">
-  <div class="inbooklist">
-    <h1 style="color: white">Book List</h1>
-    <div class="tbl-header">
-      <table cellpadding="0" cellspacing="0" border="0">
-        <thread>
-          <tr>
-            <th>Title</th>
-            <th>Author</th>
-          </tr>
-        </thread>
-      </table>
-    </div class="tbl-header">
-    <div class="tbl-content">
-        {% if book_list %}
-        <table cellpadding="0" cellspacing="0" border="0">
-          <tbody>
-            {% for book in book_list %}
+    <div class="booklist">
+      <div class="inbooklist">
+        <h1 style="color: white">Book List</h1>
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <thread>
               <tr>
-                <td><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></td>
-                <td>{{book.author}}</td>
+                <th>Title</th>
+                <th>Author</th>
               </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-        {% else %}
-          <p>There are no books in the library.</p>
-        {% endif %}
-    </div class="tbl-content">
-    <div style="padding: 20px;">
-      <a href="{% url 'book-create' %}">Create New Book</a>
+            </thread>
+          </table>
+        </div class="tbl-header">
+        <div class="tbl-content">
+            {% if book_list %}
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tbody>
+                {% for book in book_list %}
+                  <tr>
+                    <td><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></td>
+                    <td>{{book.author}}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            {% else %}
+              <p>There are no books in the library.</p>
+            {% endif %}
+        </div class="tbl-content">
+        <div style="padding: 20px;">
+          <a href="{% url 'book-create' %}">Create New Book</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-</section>
 {% endblock %}
 
 

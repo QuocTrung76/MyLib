@@ -8,44 +8,42 @@
 </script>
 {% endblock %}
 {% block content %}
-<section class="author_section">
-  <div class="authorlist">
-    <div class="inbooklist">
-      <h1 style="color: white">Author List</h1>
-      <div class="tbl-header">
-        <table cellpadding="0" cellspacing="0" border="0">
-          <thread>
-            <tr>
-              <th>Name</th>
-              <th>Date of birth</th>
-              <th>Date of death</th>
-              <th>Featured Works</th>
-            </tr>
-          </thread>
-        </table>
-      </div class="tbl-header">
-      <div class="tbl-content">
-          {% if author_list %}
+    <div class="authorlist">
+      <div class="inbooklist">
+        <h1 style="color: white">Author List</h1>
+        <div class="tbl-header">
           <table cellpadding="0" cellspacing="0" border="0">
-            <tbody>
-              {% for author in author_list %}
-                <tr>
-                  <td><a href="{{ author.get_absolute_url }}">{{ author.last_name }}{{ " " }}{{ author.first_name }}</a></td>
-                  <td>{{ author.date_of_birth }}</td>
-                  <td>{{ author.date_of_birth }}</td>
-                  <td>{{ author.featured_works }}</td>
-                </tr>
-              {% endfor %}
-            </tbody>
+            <thread>
+              <tr>
+                <th>Name</th>
+                <th>Date of birth</th>
+                <th>Date of death</th>
+                <th>Featured Works</th>
+              </tr>
+            </thread>
           </table>
-          {% else %}
-            <p>There are no author exist.</p>
-          {% endif %}
-      </div class="tbl-content">
-      <div style="padding: 20px;">
-        <a href="{% url 'author-create' %}">New Author</a>
+        </div class="tbl-header">
+        <div class="tbl-content">
+            {% if author_list %}
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tbody>
+                {% for author in author_list %}
+                  <tr>
+                    <td><a href="{{ author.get_absolute_url }}">{{ author.last_name }}{{ " " }}{{ author.first_name }}</a></td>
+                    <td>{{ author.date_of_birth }}</td>
+                    <td>{{ author.date_of_birth }}</td>
+                    <td>{{ author.featured_works }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            {% else %}
+              <p>There are no author exist.</p>
+            {% endif %}
+        </div class="tbl-content">
+        <div style="padding: 20px;">
+          <a href="{% url 'author-create' %}">New Author</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
 {% endblock %}

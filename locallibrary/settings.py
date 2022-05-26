@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&
 #DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['0.0.0.0','liboftrung.herokuapp.com','127.0.0.1', 'e3a2-113-176-62-83.ap.ngrok.io']
+ALLOWED_HOSTS = ['0.0.0.0','liboftrung.herokuapp.com','127.0.0.1', '29f0-113-161-34-189.ap.ngrok.io']
 
 
 # Application definition

@@ -1,19 +1,18 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<section class="book_section">
-  <div class="bookcontent">
-    <div class="tbl-author" style="color: #fff">
-      <p><strong>Name:</strong> {{ author.last_name }} {{ " " }} {{author.first_name}}</p><br>
-      <p><strong>DOB:</strong> {{ author.date_of_birth }}</p><br>
-      <p><strong>DOD:</strong> {{ author.date_of_death }}</p><br>
-      <p><strong>Featured Works:</strong> {{ author.featured_works }}</p>
-      <div class="action-detail">
-        <div><a href="{% url 'author-update' author.id %}">Update</a></div><br>
-        <div><a href="{% url 'author-create' %}">New Author</a></div><br>
-        <div><a href="{% url 'author-delete' author.id %}">Delete author</a></div>
+
+    <div class="bookcontent">
+      <div class="tbl-author" style="color: #fff; margin-top: 30px;">
+        <p><strong>Name:</strong> {{ author.last_name }} {{ " " }} {{author.first_name}}</p><br>
+        <p><strong>DOB:</strong> {{ author.date_of_birth }}</p><br>
+        <p><strong>DOD:</strong> {{ author.date_of_death }}</p><br>
+        <p><strong>Featured Works:</strong> {{ author.featured_works }}</p>
+        <div class="action-detail">
+          <div><a href="{% url 'author-update' author.id %}">Update</a></div><br>
+          <div><a href="{% url 'author-create' %}">New Author</a></div><br>
+          <div><a href="{% url 'author-delete' author.id %}">Delete author</a></div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
 {% endblock %}
